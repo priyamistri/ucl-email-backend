@@ -33,16 +33,8 @@ app.post('/send-email', upload.single('file'), async (req, res) => {
     });
 
     const mailOptions = {
-        from: '"University Classrooms" priyammistry1313@gmail.com',
-        to: [
-            'nyarava@asu.edu',
-            'pmistri@asu.edu',
-            'tpatel92@asu.edu',
-            'jlgrijal@asu.edu',
-            'bgreenh1@asu.edi',
-            'jnewell6@asu.edu',
-            'Loong.C.Loh@asu.edu',
-          ],
+        from: '"University Classrooms" no-reply@gmail.com',
+        to: 'pmistri@asu.edu',
         subject: 'Monday Rounds',
         html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -72,7 +64,7 @@ app.post('/send-email', upload.single('file'), async (req, res) => {
       
 
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Email sent!' });
+    res.status(200).json({ message: 'Email sent to ' + mailOptions.to + '!' });
   } catch (err) {
     console.error('Error sending email:', err);
     res.status(500).send('Error sending email');
