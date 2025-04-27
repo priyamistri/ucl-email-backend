@@ -34,7 +34,14 @@ app.post('/send-email', upload.single('file'), async (req, res) => {
 
     const mailOptions = {
         from: '"University Classrooms" no-reply@gmail.com',
-        to: 'pmistri@asu.edu',
+        to: [
+            'pmistri@asu.edu',
+            'tpatel92@asu.edu',
+            'nyarava@asu.edu',
+            'jlgrijal@asu.edu',
+            'bgreenh1@asu.edu',
+            'jnewell6@asu.edu',
+            ],
         subject: 'Monday Rounds',
         html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6;">
